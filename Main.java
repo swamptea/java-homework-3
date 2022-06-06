@@ -5,15 +5,13 @@ import java.util.List;
 
 public class Main {
     static StringBuilder log = new StringBuilder();
-    static String done = "успешно\n";
-    static String error = "при создании произошла ошибка\n";
 
     static void createFile(File file, boolean dir) throws IOException {
         String type = (dir ? "директории " : "файла ");
         log.append(new Date() + " создание " + type + file.getName() + "... ");
         if (dir ? file.mkdir() : file.createNewFile())
-            log.append(done);
-        else log.append(error);
+            log.append("успешно\n");
+        else log.append("при создании произошла ошибка\n");
     }
 
     public static void main(String[] args) {
